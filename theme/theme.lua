@@ -1,5 +1,5 @@
 ---------------------------
--- Default awesome theme --
+-- Base 16 awesome theme --
 ---------------------------
 
 theme = {}

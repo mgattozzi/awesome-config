@@ -84,8 +84,8 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names={"term","www","music","/dev","misc"},
-	layout={layouts[1], layouts[1], layouts[2], layouts[1], layouts[1]
+	names={"terms","www","music","irc","misc"},
+	layout={layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]
 }}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -111,6 +111,12 @@ separator:set_text(" | ")
 --Battery Widget
 batt = wibox.widget.textbox()
 vicious.register(batt, vicious.widgets.bat, "Batt $2%",61, "BAT1")
+--Memory Widget
+memwidget = wibox.widget.textbox()
+vicious.register(memwidget, vicious.widgets.mem, "RAM: $1%", 13)
+--CPU Widget
+cpuwidget = wibox.widget.textbox()
+vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%")
 --Icons for Bar
 
 -- Create a wibox for each screen and add it
@@ -191,6 +197,10 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+	right_layout:add(separator)
+	right_layout:add(memwidget)
+	right_layout:add(separator)
+	right_layout:add(cpuwidget)
 	right_layout:add(separator)
 	right_layout:add(batt)
 	right_layout:add(separator)
@@ -380,11 +390,7 @@ awful.rules.rules = {
     { rule = { class = "Firefox" },
        properties = { tag = tags[1][2] } },
 	{ rule = { class = "Spotify"},
-	   properties = { floating = true, tag = tags[1][3] },
-	   callback = function(c)
-		awful.placement.centered(c,nil)
-	   end
-    },
+	   properties = {tag = tags[1][3] }},
 	 { rule = { class = "Dwb"},
 	   properties = { tag = tags[1][2] } },
 	   
