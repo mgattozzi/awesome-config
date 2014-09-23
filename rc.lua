@@ -44,7 +44,7 @@ end
 beautiful.init("~/.config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "sakura"
+terminal = "urxvt"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -365,7 +365,8 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
-                     buttons = clientbuttons } },
+                     buttons = clientbuttons,
+					 size_hints_honor = false}},
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
@@ -461,7 +462,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 -- {{{ Autostart Programs
 do
-	local programs = {"sakura","dwb","spotify"}
+	local programs = {"urxvt","dwb","spotify"}
 	for _,i in pairs(programs) do
 		awful.util.spawn(i)
 	end
