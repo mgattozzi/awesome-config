@@ -376,7 +376,11 @@ awful.rules.rules = {
     { rule = { class = "Firefox" },
        properties = { tag = tags[1][2] } },
 	{ rule = { class = "Spotify"},
-	   properties = { floating = true, tag = tags[1][3] } },
+	   properties = { floating = true, tag = tags[1][3] },
+	   callback = function(c)
+		awful.placement.centered(c,nil)
+	   end
+    },
 	 { rule = { class = "Dwb"},
 	   properties = { tag = tags[1][2] } },
 	   
