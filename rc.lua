@@ -110,7 +110,7 @@ separator = wibox.widget.textbox()
 separator:set_text(" | ")
 --Battery Widget
 batt = wibox.widget.textbox()
-vicious.register(batt, vicious.widgets.bat, "Batt $2%",61, "BAT1")
+vicious.register(batt, vicious.widgets.bat, "Batt $2%",61, "BAT0")
 --Memory Widget
 memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, "RAM: $1%", 13)
@@ -471,7 +471,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 -- {{{ Autostart Programs
 do
-	local programs = {"urxvt","dwb","spotify"}
+	local programs = {"urxvt","dwb"}
 	for _,i in pairs(programs) do
 		awful.util.spawn(i)
 	end
