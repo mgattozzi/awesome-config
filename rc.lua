@@ -85,7 +85,7 @@ end
 -- Define a tag table which hold all screen tags.
 tags = {
 	names={"terms","www","music","irc","misc"},
-	layout={layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]
+	layout={layouts[3], layouts[3], layouts[3], layouts[3], layouts[3]
 }}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -387,7 +387,7 @@ awful.rules.rules = {
     { rule = { class = "Firefox" },
        properties = { tag = tags[1][2] } },
 	{ rule = { class = "Spotify"},
-	   properties = {tag = tags[1][3] }},
+	   properties = { floating = true, tag = tags[1][3] }},
 	 { rule = { class = "Dwb"},
 	   properties = { tag = tags[1][2] } },
 	   
