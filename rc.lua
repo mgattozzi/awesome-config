@@ -468,7 +468,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 -- {{{ Autostart Programs
 do
-	local programs = {"urxvt","dwb"}
+	local programs = {"urxvt","luakit"}
 	for _,i in pairs(programs) do
 		awful.util.spawn(i)
 	end
