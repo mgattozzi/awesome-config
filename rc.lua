@@ -388,7 +388,7 @@ awful.rules.rules = {
        properties = { tag = tags[1][2] } },
 	{ rule = { class = "Spotify"},
 	   properties = { floating = true, tag = tags[1][3] }},
-	 { rule = { class = "Luakit"},
+	 { rule = { class = "luakit"},
 	   properties = { tag = tags[1][2] } },
 	   
 }
